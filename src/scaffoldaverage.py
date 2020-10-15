@@ -66,6 +66,18 @@ if __name__ == '__main__':
     components = pca.components_.T
     variance = pca.explained_variance_
 
+    """
+    
+    To find the score (weight coefficient of shape i:
+    
+    shape_score_i = dot((X[i] - mean), components) # (X is your original data matrix)
+    shape_score_i_normalized = (shape_score_i - mean) / s.d.
+    
+    To get a new shape:
+    new_shape = mean + sum(PC_j * W_j) # (j is 1..N for N principal components)
+    
+    """
+
     mean = mean.reshape(117, 3)
     mean = mean.reshape(117 // 3, 3, 3)
 
